@@ -1,4 +1,7 @@
 {
+  "data": {
+    "filePath": "./data.json"
+  },
   "api": {
     "pagination": {
       "page_size": 3
