@@ -24,20 +24,12 @@ app.use('/', indexRouter);
 app.get('/api/:resource/*', apiRouter.get);
 app.get('/api/:resource', apiRouter.get);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+app.post('/api/:resource', apiRouter.post);
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.put('/api/:resource/*', apiRouter.put);
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.patch('/api/:resource/*', apiRouter.patch);
+
+app.delete('/api/:resource/*', apiRouter.delete);
 
 module.exports = app;

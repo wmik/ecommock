@@ -28,9 +28,34 @@ function get(q, s, x) {
   return s.status(response.data ? 200 : 404).json(response);
 }
 
-function post(q, s, x) {}
+function post(q, s, x) {
+  var id = q.body.id || Math.ceil(Math.random() * 1000);
+  var data = q.body;
+  data.id = id;
+  data.created = new Date().toISOString();
+  return s.status(201).json(data);
+}
+
+function put(q, s, x) {
+  var data = q.body;
+  data.updated = new Date().toISOString();
+  return s.status(201).json(data);
+}
+
+function patch(q, s, x) {
+  var data = q.body;
+  data.updated = new Date().toISOString();
+  return s.status(200).json(data);
+}
+
+function del(q, s, x) {
+  return s.status(204).send();
+}
 
 module.exports = {
   get,
-  post
+  post,
+  put,
+  patch,
+  delete: del
 };
