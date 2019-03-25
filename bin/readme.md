@@ -1,0 +1,3 @@
+> # bin
+
+*Application entry point*
